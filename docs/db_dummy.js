@@ -14,3 +14,53 @@ db.usuarios.update(
 		mail: 'mlezana@bytesw.com'
 	}
 );
+
+
+
+
+Colecciones:
+	equipos
+	grupos
+	usuarios
+
+
+db.createCollection("usuarios",
+	{
+		validator: {$and:
+			[
+				{nombre: {$type: "string"}},
+				{mail: {$regex: /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/}}
+			]
+		}
+	}
+)
+
+
+
+db.createCollection("equipos",
+	{
+		validator: {$and:
+			[
+				{nombre: {$type: "string"}},
+				{jj: {$type: "int"}},
+				{jg: {$type: "int"}},
+				{je: {$type: "int"}},
+				{jp: {$type: "int"}},
+				{gf: {$type: "int"}},
+				{gc: {$type: "int"}},
+				{gd: {$type: "int"}},
+				{pts: {$type: "int"}}
+			]
+		}
+	}
+)
+
+db.createCollection("grupos",
+	{
+		validator: {$and:
+			[
+
+			]
+		}
+	}
+)
